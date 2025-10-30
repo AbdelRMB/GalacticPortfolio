@@ -2,25 +2,39 @@ import { Timeline } from './Timeline';
 
 const experienceData = [
   {
-    year: 'Été 2024',
-    title: 'Stage Développeur Web',
-    subtitle: 'Entreprise XYZ',
+    year: 'Jul 2024 - Août 2024',
+    title: 'Développeur WEB/DevOps',
+    subtitle: 'Alternance - Still-Link - Tremblay-en-France',
     description:
-      'Développement d\'une application web moderne avec React et Node.js. Mise en place de tests automatisés et amélioration des performances.',
+      'Développeur en Alternance Chez Still-Link pour ma troisième année de BUT informatique. Maintenance de sites internet. Optimisation de sites Internet. Création et développement de CRM. Gestion des automatisations via N8N. Maintenance de Server VPS.',
   },
   {
-    year: '2023 - 2024',
-    title: 'Projet Tuteuré',
-    subtitle: 'IUT - Client Réel',
+    year: 'Avr 2025 - Juin 2025',
+    title: 'Développeur WEB',
+    subtitle: 'Stage - Still-Link - Tremblay-en-France',
     description:
-      'Création d\'une plateforme de gestion pour une association locale. Travail en équipe Agile avec livraisons régulières.',
+      'Stage développement WEB dans le cadre de mes études en BUT informatique 2. Création de site internet dynamique avec base de donnée. Création de module permettant la gestion d\'entreprise. Manipulation et mise en place d\'automatisation via N8N.',
   },
   {
-    year: 'Été 2023',
-    title: 'Développeur Junior',
-    subtitle: 'Freelance',
+    year: 'Jul 2024 - Août 2024',
+    title: 'Développeur Web/IA',
+    subtitle: 'CDD - I-Oasis - Villeneuve-Saint-Georges',
     description:
-      'Développement de sites web pour des petites entreprises locales. Gestion complète des projets de la conception au déploiement.',
+      'CDD en tant que Développeur IA et WEB au sein de l\'entreprise I-Oasis. Maintenance d\'application WEB. Optimisation d\'application WEB. Implémentation de donnée Dynamique pour IA. Création d\'un bot IA v1.',
+  },
+  {
+    year: 'Avr 2024 - Juin 2024',
+    title: 'Développeur Web',
+    subtitle: 'Stage - Iffen Formation - Villeneuve-Saint-Georges',
+    description:
+      'Stage Développeur Web dans le cadre de mes étude en BUT informatique 2. Création d\'un outil de conversion de fichiers. Maintenance de site internet. Optimisation de site internet',
+  },
+  {
+    year: '2022 - 2025',
+    title: 'Chef de poste Coordinateur dégivrage',
+    subtitle: 'Intérim - Aéroport Paris Roissy Charles de Gaulle',
+    description:
+      'Chef de poste coordinateur dégivrage à l\'aéroport Roissy CDG. Direction des opération de dégivrage sur Aéronefs. Coordination et Gestion d\'équipe. Application de protocole spécifique. Gestion et organisation.',
   },
 ];
 

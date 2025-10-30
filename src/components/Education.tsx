@@ -2,18 +2,18 @@ import { Timeline } from './Timeline';
 
 const educationData = [
   {
-    year: '2023 - 2026',
+    year: '2022 - 2026',
     title: 'BUT Informatique',
-    subtitle: 'IUT de Votre Ville',
+    subtitle: 'IUT de Marne-la-Vallée - Champs-sur-Marne',
     description:
       'Formation complète en développement logiciel, bases de données, réseaux et gestion de projet. Spécialisation en développement web et mobile.',
   },
   {
-    year: '2020 - 2023',
+    year: '2019 - 2022',
     title: 'Baccalauréat Général',
-    subtitle: 'Lycée de Votre Ville',
+    subtitle: 'Lycée Voillaume - Aulnay-sous-Bois',
     description:
-      'Spécialités Mathématiques et NSI (Numérique et Sciences Informatiques). Mention Très Bien.',
+      'Spécialités Mathématiques - Physique-Chimie - Sciences de l\'Ingénieur.',
   },
 ];
 

@@ -11,11 +11,11 @@ export function Hero() {
         </div>
 
         <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent animate-float">
-          Votre Nom
+          Abdelrahim RICHE
         </h1>
 
         <p className="text-xl md:text-2xl text-white/80 mb-4 animate-float" style={{ animationDelay: '0.2s' }}>
-          Étudiant en BUT Informatique
+          Étudiant en BUT Informatique, Alternant chez Still-Link.
         </p>
 
         <p className="text-lg md:text-xl text-white/60 mb-12 max-w-2xl mx-auto animate-float" style={{ animationDelay: '0.4s' }}>
