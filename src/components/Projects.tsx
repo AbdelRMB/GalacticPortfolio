@@ -24,51 +24,40 @@ const projects: Project[] = [
     title: 'O.R.B.I.T',
     description:
       'Ce projet s’inscrit dans l’univers Star Wars et dans le cadre de la SAÉ Développement d\'une application. L’objectif est d’aider les utilisateurs à optimiser leurs déplacements interplanétaires selon divers critères tels que la légion d\'appartenance (Rebelle, Empire, Neutre), le nombre de passagers ou encore les vaisseaux préférés. Le projet repose sur la modélisation de réseaux galactiques et inclut des fonctionnalités immersives qui respectent l’esthétique et les codes de l’univers Star Wars. L\'objectif principal est de permettre aux utilisateurs de trouver le meilleur itinéraire entre deux points galactiques en tenant compte de divers critères.',
-    image: 'https://images.pexels.com/photos/4162449/pexels-photo-4162449.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: '/orbit.png',
     technologies: ['PHP', 'CSS', 'HTML', 'JavaScript', 'MySQL'],
     competencies: ['Développer', 'Optimiser', 'Collaborer'],
-    github: '#',
+    github: 'https://github.com/AbdelRMB/O.R.B.I.T',
     // demo: 'https://newbut.abdelrahimriche.com',
   },
   {
     title: 'Wikigame',
     description:
       'WikiGame est un jeu web basé sur Wikipédia. Le but est d’atteindre un article cible en partant d’un article de départ. Pour avancer, on ne peut utiliser que les liens bleus présents dans les pages. Chaque clic est compté, ce qui pousse à trouver le chemin le plus court. Le jeu met en valeur la richesse et la connexion des articles Wikipédia. Il mélange réflexion, stratégie et culture générale. L’interface est développée avec React et TypeScript. Le back-end s’appuie sur Node.js et Express. Un système en WebSocket gère les interactions en temps réel. C’est un projet académique qui illustre mes compétences full-stack.',
-    image: 'https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: '/wikigame.png',
     technologies: ['React', 'TypeScript', 'CSS', 'NodeJS', 'Express', 'WebSocket', 'MongoDB'],
     competencies: ['Développer', 'Optimiser', 'Gérer'],
-    demo: '#',
-    github: '#',
+    demo: 'https://wikigame.abdelrahimriche.com',
+    github: 'https://github.com/AbdelRMB/wikigame',
   },
   {
     title: 'Séville Unesco',
     description:
       'Projet réaliser en première année de BUT informatique en partenariat avec l\'UNESCO visant à mettre en avant le patrimoine mondial de la ville de Séville.',
-    image: 'https://images.pexels.com/photos/1438072/pexels-photo-1438072.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: '/unesco.png',
     technologies: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL'],
     competencies: ['Développer', 'Conduire', 'Communiquer'],
-    github: '#',
-    demo: '#',
+    github: 'https://github.com/AbdelRMB/unesco',
+    demo: 'https://unesco.abdelrahimriche.com',
   },
   {
     title: 'CRM Still-Link',
     description:
       'Développement d\'un CRM complet permettant la gestion de l\'entreprise Still-Link. Il permet la gestion de factures, devis, contracts et bien autres modules facilitant la gestion d\'entreprise. Il est également doté d\'outil permettant la gestion de client d\'employé et de stock.',
-    image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: '/stilllink.png',
     technologies: ['React', 'Node.js', 'Express', 'MySQL', 'TypeScript', 'Docker', 'N8N'],
     competencies: ['Conduire', 'Gérer', 'Administrer', 'Développer', 'Optimiser', 'Collaborer'],
-    github: '#',
-    demo: '#',
-  },
-  {
-    title: 'API REST Sécurisée',
-    description:
-      'Projet réalisé dans le cadre de la SAE 3ème année de BUT informatique visant a permettre aux élève de l\'université de pouvoir s\'inscrire, participé et se rendre à des activités au sein de l\'université.',
-    image: 'https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800',
-    technologies: ['React', 'JWT', 'JavaScript', 'Node.js', 'Express', 'MySQL'],
-    competencies: ['Développer', 'Administrer', 'Optimiser', 'Collaborer'],
-    github: '#',
-    demo: '#',
+    demo: 'https://still-link.fr',
   },
 ];
 

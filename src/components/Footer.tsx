@@ -16,7 +16,7 @@ export function Footer() {
 
           <div className="flex gap-4">
             <a
-              href="https://github.com"
+              href="https://github.com/AbdelRMB"
               target="_blank"
               rel="noopener noreferrer"
               className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:scale-110"
@@ -24,7 +24,7 @@ export function Footer() {
               <Github size={20} />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/abdelrahim-riche-504a88256"
               target="_blank"
               rel="noopener noreferrer"
               className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:scale-110"
@@ -32,7 +32,7 @@ export function Footer() {
               <Linkedin size={20} />
             </a>
             <a
-              href="mailto:contact@example.com"
+              href="mailto:richeabdelrahim1@gmail.com"
               className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:scale-110"
             >
               <Mail size={20} />

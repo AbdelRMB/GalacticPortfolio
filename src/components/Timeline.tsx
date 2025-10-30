@@ -29,7 +29,7 @@ export function Timeline({ items, icon }: TimelineProps) {
           >
             <div className={`flex-1 ${index % 2 === 0 ? 'md:text-right' : ''}`}>
               <div
-                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20"
+                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-11 hover:bg-white/10 transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20"
                 style={{
                   animation: `float 6s ease-in-out infinite`,
                   animationDelay: `${index * 0.2}s`,
