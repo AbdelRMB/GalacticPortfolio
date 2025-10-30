@@ -15,7 +15,7 @@ interface TimelineProps {
 export function Timeline({ items, icon }: TimelineProps) {
   const Icon = icon === 'education' ? GraduationCap : Briefcase;
 
-  return (
+  return ( 
     <div className="relative">
       <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-cyan-500 to-teal-500" />
 
