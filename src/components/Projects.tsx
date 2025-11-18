@@ -234,7 +234,7 @@ export function Projects() {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Type badge top-left */}
-              <div className={`absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-2 shadow-sm ring-1 ring-white/5 ${typeColors[project.type] ?? 'bg-gray-500 text-white'}`}>
+              <div className={`absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-2 shadow-sm ring-1 ring-white/5 ${typeColors[project.type] ?? 'bg-gray-500 text-white'} z-10`}>
                 <Tag size={14} />
                 <span className="capitalize">{project.type}</span>
               </div>
