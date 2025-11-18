@@ -80,7 +80,7 @@ const projects: Project[] = [
     title: 'MyProjects',
     description:
       'Développement d\'un outil de gestion de projets complet permettant la gestion de tâches, ressources et délais.',
-    image: '/myprojects.png',
+    image: '/myproject.png',
     technologies: ['React', 'Node.js', 'Express', 'MySQL', 'JavaScript', 'TypeScript'],
     competencies: ['Gérer', 'Administrer', 'Développer', 'Optimiser'],
     demo: 'https://myprojects.abdelrahimriche.com',
