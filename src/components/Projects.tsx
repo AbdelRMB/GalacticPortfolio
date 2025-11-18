@@ -55,9 +55,18 @@ const projects: Project[] = [
     description:
       'Développement d\'un CRM complet permettant la gestion de l\'entreprise Still-Link. Il permet la gestion de factures, devis, contracts et bien autres modules facilitant la gestion d\'entreprise. Il est également doté d\'outil permettant la gestion de client d\'employé et de stock.',
     image: '/stilllink.png',
-    technologies: ['React', 'Node.js', 'Express', 'MySQL', 'TypeScript', 'Docker', 'N8N'],
+    technologies: ['React', 'Node.js', 'Express', 'MySQL', 'TypeScript', 'Docker', 'N8N', 'JavaScript'],
     competencies: ['Conduire', 'Gérer', 'Administrer', 'Développer', 'Optimiser', 'Collaborer'],
     demo: 'https://still-link.fr',
+  },
+  {
+    title: 'MyGestion',
+    description:
+      'Développement d\'un outil de gestion d\'entreprise complet permettant la gestion de factures, devis, contracts et bien autres modules facilitant la gestion d\'entreprise.',
+    image: '/mygestion.png',
+    technologies: ['React', 'Node.js', 'Express', 'MySQL', 'TypeScript'],
+    competencies: ['Gérer', 'Administrer', 'Développer', 'Optimiser'],
+    demo: 'https://mygestion.abdelrahimriche.com',
   },
 ];
 
