@@ -14,6 +14,27 @@ interface Project {
 
 const projects: Project[] = [
   {
+    title: 'U-Activity',
+    description:
+      'Projet Académique visant à créer une application web et mobile permettant aux étudiants de suivre et gérer leurs activités universitaires. L\'application offre une interface intuitive et des fonctionnalités adaptées aux besoins des étudiants. Elle permet également aux admin et aux reponsables d\'activités de gérer les événements et les inscriptions.',
+    image: '/uactivity.png',
+    technologies: ['React', 'Tailwind CSS', 'NodeJS', 'Express', 'WebSocket', 'MySQL', 'Figma', 'Looping'],
+    competencies: ['Développer', 'Optimiser', 'Gérer'],
+    demo: 'https://u-activity.abdelrahimriche.com',
+    type: 'academic',
+  },
+  {
+    title: 'Wikigame',
+    description:
+      'WikiGame est un jeu web basé sur Wikipédia. Le but est d’atteindre un article cible en partant d’un article de départ. Pour avancer, on ne peut utiliser que les liens bleus présents dans les pages. Chaque clic est compté, ce qui pousse à trouver le chemin le plus court. Le jeu met en valeur la richesse et la connexion des articles Wikipédia. Il mélange réflexion, stratégie et culture générale. L’interface est développée avec React et TypeScript. Le back-end s’appuie sur Node.js et Express. Un système en WebSocket gère les interactions en temps réel. C’est un projet académique qui illustre mes compétences full-stack.',
+    image: '/wikigame.png',
+    technologies: ['React', 'TypeScript', 'CSS', 'NodeJS', 'Express', 'WebSocket', 'MongoDB'],
+    competencies: ['Développer', 'Optimiser', 'Gérer'],
+    demo: 'https://wikigame.abdelrahimriche.com',
+    github: 'https://github.com/AbdelRMB/wikigame',
+    type: 'academic',
+  },
+  {
     title: 'New BUT',
     description:
       'Développement d\'un site permettant la présentation d\'une nouvelle filière but informatique re réviser et penser afin d\'intégrer les nouveauté technologique et adapté les étude à la progration et l\'innovation du monde de l\'informatique.',
@@ -32,17 +53,6 @@ const projects: Project[] = [
     competencies: ['Développer', 'Optimiser', 'Collaborer'],
     github: 'https://github.com/AbdelRMB/O.R.B.I.T',
     // demo: 'https://newbut.abdelrahimriche.com',
-    type: 'academic',
-  },
-  {
-    title: 'Wikigame',
-    description:
-      'WikiGame est un jeu web basé sur Wikipédia. Le but est d’atteindre un article cible en partant d’un article de départ. Pour avancer, on ne peut utiliser que les liens bleus présents dans les pages. Chaque clic est compté, ce qui pousse à trouver le chemin le plus court. Le jeu met en valeur la richesse et la connexion des articles Wikipédia. Il mélange réflexion, stratégie et culture générale. L’interface est développée avec React et TypeScript. Le back-end s’appuie sur Node.js et Express. Un système en WebSocket gère les interactions en temps réel. C’est un projet académique qui illustre mes compétences full-stack.',
-    image: '/wikigame.png',
-    technologies: ['React', 'TypeScript', 'CSS', 'NodeJS', 'Express', 'WebSocket', 'MongoDB'],
-    competencies: ['Développer', 'Optimiser', 'Gérer'],
-    demo: 'https://wikigame.abdelrahimriche.com',
-    github: 'https://github.com/AbdelRMB/wikigame',
     type: 'academic',
   },
   {
