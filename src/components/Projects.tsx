@@ -1,3 +1,4 @@
+import React, { useMemo, useState } from 'react';
 import { ExternalLink, Github } from 'lucide-react';
 
 interface Project {
@@ -6,6 +7,7 @@ interface Project {
   image: string;
   technologies: string[];
   competencies: string[];
+  type: 'personal' | 'academic' | 'professional';
   github?: string;
   demo?: string;
 }
@@ -19,6 +21,7 @@ const projects: Project[] = [
     technologies: ['HTML', 'CSS', 'JavaScript'],
     competencies: ['Développer', 'Administrer', 'Gérer'],
     demo: 'https://newbut.abdelrahimriche.com',
+    type: 'academic',
   },
   {
     title: 'O.R.B.I.T',
@@ -29,6 +32,7 @@ const projects: Project[] = [
     competencies: ['Développer', 'Optimiser', 'Collaborer'],
     github: 'https://github.com/AbdelRMB/O.R.B.I.T',
     // demo: 'https://newbut.abdelrahimriche.com',
+    type: 'academic',
   },
   {
     title: 'Wikigame',
@@ -39,6 +43,7 @@ const projects: Project[] = [
     competencies: ['Développer', 'Optimiser', 'Gérer'],
     demo: 'https://wikigame.abdelrahimriche.com',
     github: 'https://github.com/AbdelRMB/wikigame',
+    type: 'academic',
   },
   {
     title: 'Séville Unesco',
@@ -49,6 +54,7 @@ const projects: Project[] = [
     competencies: ['Développer', 'Conduire', 'Communiquer'],
     github: 'https://github.com/AbdelRMB/unesco',
     demo: 'https://unesco.abdelrahimriche.com',
+    type: 'academic',
   },
   {
     title: 'CRM Still-Link',
@@ -58,6 +64,7 @@ const projects: Project[] = [
     technologies: ['React', 'Node.js', 'Express', 'MySQL', 'TypeScript', 'Docker', 'N8N', 'JavaScript'],
     competencies: ['Conduire', 'Gérer', 'Administrer', 'Développer', 'Optimiser', 'Collaborer'],
     demo: 'https://still-link.fr',
+    type: 'professional',
   },
   {
     title: 'MyGestion',
@@ -67,29 +74,139 @@ const projects: Project[] = [
     technologies: ['React', 'Node.js', 'Express', 'MySQL', 'TypeScript'],
     competencies: ['Gérer', 'Administrer', 'Développer', 'Optimiser'],
     demo: 'https://mygestion.abdelrahimriche.com',
+    type: 'personal',
   },
 ];
 
 export function Projects() {
+  const [selectedTechs, setSelectedTechs] = useState<string[]>([]);
+  const [selectedComps, setSelectedComps] = useState<string[]>([]);
+  const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
+
+  const allTechnologies = useMemo(() => {
+    const s = new Set<string>();
+    projects.forEach((p) => p.technologies.forEach((t) => s.add(t)));
+    return Array.from(s).sort();
+  }, []);
+
+  const allCompetencies = useMemo(() => {
+    const s = new Set<string>();
+    projects.forEach((p) => p.competencies.forEach((c) => s.add(c)));
+    return Array.from(s).sort();
+  }, []);
+
+  const allTypes = useMemo(() => {
+    return Array.from(new Set(projects.map((p) => p.type)));
+  }, []);
+
+  function toggleIn<T>(arr: T[], value: T) {
+    return arr.includes(value) ? arr.filter((a) => a !== value) : [...arr, value];
+  }
+
+  const filtered = projects.filter((p) => {
+    const techMatch = selectedTechs.length === 0 || p.technologies.some((t) => selectedTechs.includes(t));
+    const compMatch = selectedComps.length === 0 || p.competencies.some((c) => selectedComps.includes(c));
+    const typeMatch = selectedTypes.length === 0 || selectedTypes.includes(p.type);
+    return techMatch && compMatch && typeMatch;
+  });
+
+  const typeColors: Record<string, string> = {
+    personal: 'bg-emerald-500 text-emerald-900/95',
+    academic: 'bg-indigo-500 text-white',
+    professional: 'bg-amber-400 text-amber-900',
+  };
+
   return (
     <section id="projects" className="relative py-24 overflow-hidden">
       <div className="container mx-auto px-6 z-10 relative">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8">
           <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-teal-400 to-blue-400 bg-clip-text text-transparent">
             Mes Projets
           </h2>
-          <p className="text-white/60 text-lg">
-            Découvrez mes réalisations et les compétences mises en œuvre
-          </p>
+          <p className="text-white/60 text-lg">Découvrez mes réalisations et les compétences mises en œuvre</p>
+        </div>
+
+        {/* Filters */}
+        <div className="mb-8 flex flex-col gap-4">
+          <div className="flex items-center justify-between flex-wrap gap-3">
+            <div className="flex items-center gap-3 flex-wrap">
+              <div className="text-white/70 text-sm">Filtrer par :</div>
+
+              <div className="flex items-center gap-2 flex-wrap">
+                {allTypes.map((t) => (
+                  <button
+                    key={t}
+                    onClick={() => setSelectedTypes((s) => toggleIn(s, t))}
+                    className={`px-3 py-1 rounded-full text-sm font-medium transition-colors border ${selectedTypes.includes(t) ? 'bg-white/10 border-white/20' : 'bg-white/2 border-white/5'} text-white/90`}
+                    aria-pressed={selectedTypes.includes(t)}
+                  >
+                    {t}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => {
+                  setSelectedTechs([]);
+                  setSelectedComps([]);
+                  setSelectedTypes([]);
+                }}
+                className="text-sm px-3 py-1 rounded-md bg-white/5 hover:bg-white/10 transition"
+              >
+                Réinitialiser
+              </button>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div>
+              <div className="text-sm text-white/50 mb-2">Technologies</div>
+              <div className="flex flex-wrap gap-2">
+                {allTechnologies.map((tech) => (
+                  <button
+                    key={tech}
+                    onClick={() => setSelectedTechs((s) => toggleIn(s, tech))}
+                    className={`px-3 py-1 rounded-full text-xs font-medium transition-colors border ${selectedTechs.includes(tech) ? 'bg-blue-500/25 border-blue-400 text-blue-100' : 'bg-white/3 border-white/10 text-white/70'}`}
+                    aria-pressed={selectedTechs.includes(tech)}
+                  >
+                    {tech}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <div className="text-sm text-white/50 mb-2">Compétences</div>
+              <div className="flex flex-wrap gap-2">
+                {allCompetencies.map((c) => (
+                  <button
+                    key={c}
+                    onClick={() => setSelectedComps((s) => toggleIn(s, c))}
+                    className={`px-3 py-1 rounded-full text-xs font-medium transition-colors border ${selectedComps.includes(c) ? 'bg-cyan-500/25 border-cyan-400 text-cyan-100' : 'bg-white/3 border-white/10 text-white/70'}`}
+                    aria-pressed={selectedComps.includes(c)}
+                  >
+                    {c}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+          {filtered.map((project, index) => (
             <div
               key={index}
-              className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-blue-500/20 animate-float"
+              className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-blue-500/20 animate-float relative"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
+              {/* Type badge top-left */}
+              <div className={`absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-semibold ${typeColors[project.type] ?? 'bg-gray-500 text-white'}`}>
+                {project.type}
+              </div>
+
               <div className="relative overflow-hidden h-48">
                 <img
                   src={project.image}
@@ -100,19 +217,14 @@ export function Projects() {
               </div>
 
               <div className="p-6">
-                <h3 className="text-xl font-bold text-white mb-3">
-                  {project.title}
-                </h3>
+                <h3 className="text-xl font-bold text-white mb-3">{project.title}</h3>
                 <p className="text-white/70 mb-4 text-sm">{project.description}</p>
 
                 <div className="mb-4">
                   <div className="text-sm text-white/50 mb-2">Technologies:</div>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, i) => (
-                      <span
-                        key={i}
-                        className="px-3 py-1 bg-blue-500/20 border border-blue-500/30 rounded-full text-xs text-blue-300"
-                      >
+                      <span key={i} className="px-3 py-1 bg-blue-500/20 border border-blue-500/30 rounded-full text-xs text-blue-300">
                         {tech}
                       </span>
                     ))}
@@ -123,10 +235,7 @@ export function Projects() {
                   <div className="text-sm text-white/50 mb-2">Compétences:</div>
                   <div className="flex flex-wrap gap-2">
                     {project.competencies.map((comp, i) => (
-                      <span
-                        key={i}
-                        className="px-3 py-1 bg-cyan-500/20 border border-cyan-500/30 rounded-full text-xs text-cyan-300"
-                      >
+                      <span key={i} className="px-3 py-1 bg-cyan-500/20 border border-cyan-500/30 rounded-full text-xs text-cyan-300">
                         {comp}
                       </span>
                     ))}
@@ -135,19 +244,13 @@ export function Projects() {
 
                 <div className="flex gap-3">
                   {project.github && (
-                    <a
-                      href={project.github}
-                      className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 transition-colors text-sm"
-                    >
+                    <a href={project.github} className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 transition-colors text-sm">
                       <Github size={16} />
                       Code
                     </a>
                   )}
                   {project.demo && (
-                    <a
-                      href={project.demo}
-                      className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg hover:shadow-lg hover:shadow-blue-500/50 transition-all text-sm"
-                    >
+                    <a href={project.demo} className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg hover:shadow-lg hover:shadow-blue-500/50 transition-all text-sm">
                       <ExternalLink size={16} />
                       Demo
                     </a>
