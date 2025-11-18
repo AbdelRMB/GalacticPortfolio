@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, Tag } from 'lucide-react';
 
 interface Project {
   title: string;
@@ -99,6 +99,24 @@ export function Projects() {
     return Array.from(new Set(projects.map((p) => p.type)));
   }, []);
 
+  const techCounts = useMemo(() => {
+    const m: Record<string, number> = {};
+    projects.forEach((p) => p.technologies.forEach((t) => (m[t] = (m[t] || 0) + 1)));
+    return m;
+  }, []);
+
+  const compCounts = useMemo(() => {
+    const m: Record<string, number> = {};
+    projects.forEach((p) => p.competencies.forEach((c) => (m[c] = (m[c] || 0) + 1)));
+    return m;
+  }, []);
+
+  const typeCounts = useMemo(() => {
+    const m: Record<string, number> = {};
+    projects.forEach((p) => (m[p.type] = (m[p.type] || 0) + 1));
+    return m;
+  }, []);
+
   function toggleIn<T>(arr: T[], value: T) {
     return arr.includes(value) ? arr.filter((a) => a !== value) : [...arr, value];
   }
@@ -137,10 +155,11 @@ export function Projects() {
                   <button
                     key={t}
                     onClick={() => setSelectedTypes((s) => toggleIn(s, t))}
-                    className={`px-3 py-1 rounded-full text-sm font-medium transition-colors border ${selectedTypes.includes(t) ? 'bg-white/10 border-white/20' : 'bg-white/2 border-white/5'} text-white/90`}
+                    className={`px-3 py-1 rounded-full text-sm font-medium transition-colors border flex items-center gap-2 ${selectedTypes.includes(t) ? 'bg-white/10 border-white/20' : 'bg-white/2 border-white/5'} text-white/90`}
                     aria-pressed={selectedTypes.includes(t)}
                   >
-                    {t}
+                    <span className="capitalize">{t}</span>
+                    <span className="ml-1 text-xs bg-white/8 px-2 py-0.5 rounded-full text-white/80">{typeCounts[t] ?? 0}</span>
                   </button>
                 ))}
               </div>
@@ -153,7 +172,7 @@ export function Projects() {
                   setSelectedComps([]);
                   setSelectedTypes([]);
                 }}
-                className="text-sm px-3 py-1 rounded-md bg-white/5 hover:bg-white/10 transition"
+                className="text-sm px-3 py-1 rounded-md bg-gradient-to-r from-blue-600 to-cyan-500 hover:opacity-95 text-white transition shadow-md"
               >
                 Réinitialiser
               </button>
@@ -168,10 +187,11 @@ export function Projects() {
                   <button
                     key={tech}
                     onClick={() => setSelectedTechs((s) => toggleIn(s, tech))}
-                    className={`px-3 py-1 rounded-full text-xs font-medium transition-colors border ${selectedTechs.includes(tech) ? 'bg-blue-500/25 border-blue-400 text-blue-100' : 'bg-white/3 border-white/10 text-white/70'}`}
+                    className={`px-3 py-1 rounded-full text-xs font-medium transition-colors border flex items-center gap-2 ${selectedTechs.includes(tech) ? 'bg-blue-500/25 border-blue-400 text-blue-100' : 'bg-white/3 border-white/10 text-white/70'}`}
                     aria-pressed={selectedTechs.includes(tech)}
                   >
-                    {tech}
+                    <span>{tech}</span>
+                    <span className="text-[10px] bg-white/6 px-1.5 py-0.5 rounded-full">{techCounts[tech] ?? 0}</span>
                   </button>
                 ))}
               </div>
@@ -184,10 +204,11 @@ export function Projects() {
                   <button
                     key={c}
                     onClick={() => setSelectedComps((s) => toggleIn(s, c))}
-                    className={`px-3 py-1 rounded-full text-xs font-medium transition-colors border ${selectedComps.includes(c) ? 'bg-cyan-500/25 border-cyan-400 text-cyan-100' : 'bg-white/3 border-white/10 text-white/70'}`}
+                    className={`px-3 py-1 rounded-full text-xs font-medium transition-colors border flex items-center gap-2 ${selectedComps.includes(c) ? 'bg-cyan-500/25 border-cyan-400 text-cyan-100' : 'bg-white/3 border-white/10 text-white/70'}`}
                     aria-pressed={selectedComps.includes(c)}
                   >
-                    {c}
+                    <span>{c}</span>
+                    <span className="text-[10px] bg-white/6 px-1.5 py-0.5 rounded-full">{compCounts[c] ?? 0}</span>
                   </button>
                 ))}
               </div>
@@ -203,8 +224,9 @@ export function Projects() {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Type badge top-left */}
-              <div className={`absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-semibold ${typeColors[project.type] ?? 'bg-gray-500 text-white'}`}>
-                {project.type}
+              <div className={`absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-2 shadow-sm ring-1 ring-white/5 ${typeColors[project.type] ?? 'bg-gray-500 text-white'}`}>
+                <Tag size={14} />
+                <span className="capitalize">{project.type}</span>
               </div>
 
               <div className="relative overflow-hidden h-48">
@@ -260,6 +282,22 @@ export function Projects() {
             </div>
           ))}
         </div>
+
+        {filtered.length === 0 && (
+          <div className="mt-8 p-6 bg-white/3 border border-white/8 rounded-lg text-center">
+            <p className="text-white/70 mb-3">Aucun projet ne correspond aux filtres sélectionnés.</p>
+            <button
+              onClick={() => {
+                setSelectedTechs([]);
+                setSelectedComps([]);
+                setSelectedTypes([]);
+              }}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg text-sm font-medium shadow-lg"
+            >
+              Réinitialiser les filtres
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
