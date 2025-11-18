@@ -76,6 +76,16 @@ const projects: Project[] = [
     demo: 'https://mygestion.abdelrahimriche.com',
     type: 'personal',
   },
+  {
+    title: 'MyProjects',
+    description:
+      'Développement d\'un outil de gestion de projets complet permettant la gestion de tâches, ressources et délais.',
+    image: '/myprojects.png',
+    technologies: ['React', 'Node.js', 'Express', 'MySQL', 'JavaScript', 'TypeScript'],
+    competencies: ['Gérer', 'Administrer', 'Développer', 'Optimiser'],
+    demo: 'https://myprojects.abdelrahimriche.com',
+    type: 'personal',
+  },
 ];
 
 export function Projects() {
